@@ -4,6 +4,8 @@
 # - don't stry to store the generated output docs
 doxygen/docs/
 
+### JUCE
+JuceLibraryCode/
 
 # Created by https://www.gitignore.io/api/xcode,c++,visualstudio
 
@@ -13,6 +15,7 @@ doxygen/docs/
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ## Build generated
+Builds/
 build/
 DerivedData/
 
