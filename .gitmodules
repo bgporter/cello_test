@@ -1,0 +1,9 @@
+[submodule "submodules/JUCE"]
+	path = submodules/JUCE
+	url = git@github.com:juce-framework/JUCE.git
+[submodule "submodules/testSuite"]
+	path = submodules/testSuite
+	url = git@github.com:bgporter/testSuite.git
+[submodule "submodules/cello"]
+	path = submodules/cello
+	url = git@github.com:bgporter/cello.git
