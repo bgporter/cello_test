@@ -25,8 +25,10 @@
     </VS2022>
     <XCODE_MAC targetFolder="Builds/MacOSX">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="cello_test"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="cello_test"/>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="cello_test" macOSDeploymentTarget="10.13"
+                       osxCompatibility="10.13 SDK" customXcodeFlags="CODE_SIGNING_ALLOWED=NO"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="cello_test" macOSDeploymentTarget="10.13"
+                       osxCompatibility="10.13 SDK" customXcodeFlags="CODE_SIGNING_ALLOWED=NO"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="submodules/JUCE/modules"/>
