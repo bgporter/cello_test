@@ -10,6 +10,28 @@ MainComponent::MainComponent(IpcDemoProperties &rootProps)
     clientSketchProps.onChildAdded = [this](juce::ValueTree &child, int oldIndex, int newIndex) { repaint(); };
     clientSketchProps.onChildRemoved = [this](juce::ValueTree &child, int oldIndex, int newIndex) { repaint(); };
 
+    const cello::IpcClient::ConnectOptions options{demoProps.isServer ? cello::IpcClient::ConnectOptions::createOrFail
+                                                                      : cello::IpcClient::ConnectOptions::mustExist};
+
+    cello::IpcClient::UpdateType update = static_cast<cello::IpcClient::UpdateType>(
+        cello::IpcClient::UpdateType::send | cello::IpcClient::UpdateType::receive);
+
+    //   cello::IpcClient::UpdateType::fullUpdateOnConnect;
+
+    // create an IPC client for this end and connect appropriately
+    ipc = std::make_unique<cello::IpcClient>(drawingProps, "drawingDemo", -1, update, &demoProps);
+    if (ipc != nullptr)
+    {
+        ipcProperties = std::make_unique<cello::IpcClientProperties>(&demoProps);
+        ipcProperties->connected.onPropertyChange([this](juce::Identifier) {
+            DBG("IPC connection is" << (ipcProperties->connected ? "" : " NOT") << " connected.");
+        });
+        auto connectedOk{ipc->connect(options)};
+        juce::String msg{demoProps.isServer ? "Server" : "Client"};
+        msg << " connection: " << (connectedOk ? "OK" : "ERROR");
+        DBG(msg);
+    }
+
     setSize(600, 400);
 }
 

@@ -44,12 +44,24 @@ class cello_ipc_demoApplication : public juce::JUCEApplication
         rootProperties = std::make_unique<IpcDemoProperties>(isServer);
 
         mainWindow.reset(new MainWindow(getApplicationName(), *(rootProperties.get())));
+        if (isServer)
+        {
+            auto myExecutable{juce::File::getSpecialLocation(juce::File::currentExecutableFile)};
+            if (myExecutable.existsAsFile())
+            {
+                auto cmdLine{myExecutable.getFullPathName()};
+                cmdLine << " " << clientCmd;
+                auto ok{clientProcess.start(cmdLine)};
+                jassert(ok);
+            }
+        }
     }
 
     void shutdown() override
     {
         // Add your application's shutdown code here..
-
+        if (clientProcess.isRunning())
+            clientProcess.kill();
         mainWindow = nullptr; // (deletes our window)
     }
 
@@ -119,6 +131,7 @@ class cello_ipc_demoApplication : public juce::JUCEApplication
 
     std::unique_ptr<IpcDemoProperties> rootProperties;
     std::unique_ptr<DrawingProperties> drawingProperties;
+    juce::ChildProcess clientProcess;
 };
 
 //==============================================================================

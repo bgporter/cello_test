@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="zrYLzM" name="cello_ipc_demo" projectType="guiapp" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" bundleIdentifier="net.bgporter.cello-ipc-demo">
   <MAINGROUP id="h75tu4" name="cello_ipc_demo">
     <GROUP id="{D71831BE-BCCA-F5D8-2CA3-A1DB1EDDB356}" name="Source">
       <FILE id="tqAVf5" name="DrawingProperties.h" compile="0" resource="0"

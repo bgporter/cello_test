@@ -32,5 +32,8 @@ class MainComponent : public juce::Component
     SketchProperties serverSketchProps;
     SketchProperties clientSketchProps;
 
+    std::unique_ptr<cello::IpcClient> ipc;
+    std::unique_ptr<cello::IpcClientProperties> ipcProperties;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainComponent)
 };
