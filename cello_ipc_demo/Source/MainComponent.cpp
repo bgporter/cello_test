@@ -43,6 +43,8 @@ MainComponent::MainComponent (IpcDemoProperties& rootProps)
 
 void MainComponent::paint (juce::Graphics& g)
 {
+    // we fill the client app with a very faint gray so it's visible
+    // which instance is which.
     g.fillAll (demoProps.isServer ? juce::Colours::white : juce::Colours::lightgrey);
 
     drawSketch (g, *clientSketch.sketchProperties, juce::Colours::red);
