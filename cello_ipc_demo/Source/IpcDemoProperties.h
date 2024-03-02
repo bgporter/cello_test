@@ -17,16 +17,16 @@
     SOFTWARE.
 */
 
+#pragma once
 #include <JuceHeader.h>
 
-//==============================================================================
-int main(int argc, char *argv[])
+struct IpcDemoProperties : public cello::Object
 {
+    IpcDemoProperties (bool isServer_)
+    : cello::Object ("root", nullptr)
+    {
+        isServer = isServer_;
+    }
 
-    juce::StringArray argList{argv, argc};
-
-    // ..your code goes here!
-    TestSuite::runAllTests(argList.joinIntoString(" "));
-
-    return 0;
-}
+    MAKE_VALUE_MEMBER (bool, isServer, true);
+};
