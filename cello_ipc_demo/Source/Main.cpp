@@ -45,6 +45,7 @@ public:
         mainWindow.reset (new MainWindow (getApplicationName (), *(rootProperties.get ())));
         if (isServer)
         {
+            TestSuite::runAllTests (commandLine);
             // If this app is the first to launch, it becomes the server, and will
             // launch a second copy of itself as a child process, passing the command
             // line flag "--client" to tell that instance that it's to run in client
