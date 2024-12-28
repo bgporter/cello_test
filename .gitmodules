@@ -7,3 +7,6 @@
 [submodule "submodules/cello"]
 	path = submodules/cello
 	url = git@github.com:bgporter/cello.git
+[submodule "submodules/cello_utils"]
+	path = submodules/cello_utils
+	url = git@github.com:bgporter/cello_utils.git
