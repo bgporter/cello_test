@@ -21,6 +21,7 @@
         <MODULEPATH id="juce_events" path="submodules/JUCE/modules"/>
         <MODULEPATH id="testSuite" path="submodules"/>
         <MODULEPATH id="cello" path="submodules"/>
+        <MODULEPATH id="cello_utils" path="submodules"/>
       </MODULEPATHS>
     </VS2022>
     <XCODE_MAC targetFolder="Builds/MacOSX">
@@ -36,11 +37,13 @@
         <MODULEPATH id="juce_events" path="submodules/JUCE/modules"/>
         <MODULEPATH id="testSuite" path="submodules"/>
         <MODULEPATH id="cello" path="submodules"/>
+        <MODULEPATH id="cello_utils" path="submodules"/>
       </MODULEPATHS>
     </XCODE_MAC>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="cello" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="cello_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
